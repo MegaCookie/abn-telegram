@@ -1,0 +1,6 @@
+abna==0.2
+python-telegram-bot==11.1.0
+ruamel.yaml
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib

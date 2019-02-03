@@ -1,0 +1,49 @@
+poll_time: 300
+
+telegram:
+    token: "putHereYourToken"
+    chat_id: 123456
+
+abn:
+    iban_account: "NLXXABNA0xxxxx"
+    pass_number: 123
+    soft_token: "12345"
+
+gsheet:
+    id: "gsheet_ID"
+    expenses_range: "Uitgaven!A:D"
+    income_range: "Inkomsten!A:D"
+    date_format: "%d-%m-%Y %H:%M:%S"
+    use_comma: true
+
+    order_of_values:
+        - timestamp
+        - description
+        - category
+        - amount
+
+categories:
+        -   - Boodschappen:
+                short_name: "🛍/ 🍞"
+            - Electronica:
+                short_name: "💻"
+            - Kleding:
+                short_name: "👕"
+
+        -   - Kantoorspulletjes:
+                short_name: "📓/ 🖨"
+            - Persoonlijke verzorging:
+                short_name: "🛀🤳"
+            - Cadeaus:
+                short_name: "🎁"
+            - Zorg:
+                short_name: "🏥"
+
+        -   - Uitjes:
+                short_name: "🎡"
+            - Reizen:
+                short_name: "🚅"
+
+        -   - Overig
+            - Investeringen:
+                  short_name: "📈"
