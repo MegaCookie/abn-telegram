@@ -7,3 +7,4 @@ last_transaction.yaml
 telegram_messages.shelve*
 mutations.json
 __pychache__/*
+abn-telegram.db*

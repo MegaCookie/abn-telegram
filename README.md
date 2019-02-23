@@ -18,7 +18,15 @@ This makes use of the [abna Python library](https://github.com/djc/abna) to retr
 transactions.   
 `pip install -r requirements.txt`  
 `cp config-example.yaml config.yaml` and edit that to your preferences.  
+
+Then enable the Google Sheets API on: 
+https://console.developers.google.com/apis/library/sheets.googleapis.com  
+
+Make some credentials, and save them as credentials.json
+
 `python bot.py`
+
+Enable 
 
 ## Usage
 T.B.C.
