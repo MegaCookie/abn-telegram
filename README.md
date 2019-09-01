@@ -25,7 +25,7 @@ Then enable the Google Sheets API on: https://console.developers.google.com/apis
 * Make sure OAuth has access scope to (OAuth consent screen): `../auth/spreadsheets `
 * Add a new `OAuth client ID` on the `Credentials` page. Choose other (cause it's not an webapp)
 * Download and save them as credentials.json in this folder
-* Running not locally and need to confirm Oatuh? `ssh user@server -L 8080:localhost:8080` to map
+* Running not locally and need to confirm OAuth? `ssh user@server -L 8080:localhost:8080` to map
 your 8080 port to the 8080 port of the server.
 
 
