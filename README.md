@@ -16,15 +16,20 @@ my payment info on Google Drive, and an extra hop through Telegram does not both
 ## Installation
 This makes use of the [abna Python library](https://github.com/djc/abna) to retrieve 
 transactions.   
-`pip install -r requirements.txt`  
-`cp config-example.yaml config.yaml` and edit that to your preferences.  
+* `virtualenv venv`
+* `. venv/bin/activate`
+* `pip install -r requirements.txt`  
+* `cp config-example.yaml config.yaml` and edit that to your preferences.  
 
-Then enable the Google Sheets API on: 
-https://console.developers.google.com/apis/library/sheets.googleapis.com  
+Then enable the Google Sheets API on: https://console.developers.google.com/apis/library/sheets.googleapis.com  
+* Make sure Oauth has access to (Oauth permission/ consent screen): `../auth/spreadsheets `
+* Choose other (cause it's not an webapp)
+* Download and save them as credentials.json in this folder
+* Running not locally and need to confirm Oatuh? `ssh user@server -L 8080:localhost:8080` to map
+your 8080 port to the 8080 port of the server.
 
-Make some credentials, and save them as credentials.json
-
-`python bot.py`
+### Finally
+* `python bot.py` (with Python 3)
 
 Enable 
 

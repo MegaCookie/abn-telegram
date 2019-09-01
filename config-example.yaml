@@ -15,8 +15,8 @@ abn:
 
 gsheet:
     id: "gsheet_ID"
-    expenses_range: "Uitgaven!A:D"
-    income_range: "Inkomsten!A:D"
+    expenses_range: "Uitgaven!A2:D"
+    income_range: "Inkomsten!A2:D"
     date_format: "%d-%m-%Y %H:%M:%S"
     use_comma: true
 

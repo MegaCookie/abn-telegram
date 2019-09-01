@@ -189,7 +189,8 @@ class Bot:
 				if not bot.delete_message(chat_id=query.message.chat_id, message_id=query.message.message_id):
 					query.edit_message_text(
 						text=query.message.text + (
-							f'\nChosen category: *{category}* ✔' if not ignore_message or ask_message_again else
+							f'\nChosen category: *{category}* ✔'
+							if not ignore_message or ask_message_again else
 							f'\n*❌ IGNORED ❌'
 						),
 						parse_mode='Markdown'
