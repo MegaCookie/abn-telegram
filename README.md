@@ -28,10 +28,17 @@ Then enable the Google Sheets API on: https://console.developers.google.com/apis
 * Running not locally and need to confirm Oatuh? `ssh user@server -L 8080:localhost:8080` to map
 your 8080 port to the 8080 port of the server.
 
+
+
 ### Finally
 * `python bot.py` (with Python 3)
 
-Enable 
+### Adding as a systemd service
+* `sudo cp ./abn-telegram.service /etc/systemd/system`
+* Edit the file: set the right folder and the user you want to run it as.
+* `sudo systemctl enable /etc/systemd/abn-telegram.service`
+* `sudo systemctl daemon-reload`
+* `sudo systemctl start abn-telegram.service`
 
 ## Usage
 T.B.C.
