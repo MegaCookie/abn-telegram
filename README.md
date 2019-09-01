@@ -36,7 +36,7 @@ your 8080 port to the 8080 port of the server.
 ### Adding as a systemd service
 * `sudo cp ./abn-telegram.service /etc/systemd/system`
 * Edit the file: set the right folder and the user you want to run it as.
-* `sudo systemctl enable /etc/systemd/abn-telegram.service`
+* `sudo systemctl enable /etc/systemd/system/abn-telegram.service`
 * `sudo systemctl daemon-reload`
 * `sudo systemctl start abn-telegram.service`
 

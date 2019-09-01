@@ -8,8 +8,6 @@ User=xxx
 Group=xxx
 WorkingDirectory=/daFolder
 ExecStart=/usr/bin/python3 /daFolder/bot.py
-StandardOutput=/daFolder/bot.log
-StandardError=/daFolder/errorbot.log
 
 [Install]
 WantedBy=multi-user.target
