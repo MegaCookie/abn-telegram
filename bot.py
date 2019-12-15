@@ -104,6 +104,8 @@ class Bot:
 
 		reply_markup = InlineKeyboardMarkup(keyboard)
 
+		print(transaction.message_text)
+
 		telegram_message = self.bot.bot.send_message(
 			chat_id=self.chat_id,
 			text=transaction.message_text,
