@@ -5,6 +5,8 @@ import threading
 from abn import Abn
 from gsheets import Gsheet
 from models import Transaction, Message, create_tables
+from telegram.error import TelegramError
+import traceback
 
 yaml = YAML()
 
@@ -104,22 +106,24 @@ class Bot:
 
 		reply_markup = InlineKeyboardMarkup(keyboard)
 
-		print(transaction.message_text)
+		try:
+			telegram_message = self.bot.bot.send_message(
+				chat_id=self.chat_id,
+				text=transaction.message_text,
+				reply_markup=reply_markup,
+				parse_mode='Markdown'
+			)
 
-		telegram_message = self.bot.bot.send_message(
-			chat_id=self.chat_id,
-			text=transaction.message_text,
-			reply_markup=reply_markup,
-			parse_mode='Markdown'
-		)
+			Message.insert(
+				id=telegram_message.message_id,
+				transaction_id=transaction.id
+			).on_conflict('replace').execute()
 
-		Message.insert(
-			id=telegram_message.message_id,
-			transaction_id=transaction.id
-		).on_conflict('replace').execute()
-
-		transaction.asked = True
-		transaction.save()
+			transaction.asked = True
+			transaction.save()
+		except TelegramError:
+			traceback.print_exc()
+			print('Something went wrong!')
 
 	def delete_transaction_message(self, chat_id: int, transaction: Transaction):
 		try:
@@ -129,7 +133,8 @@ class Bot:
 					chat_id=chat_id,
 					message_id=transaction.message.id
 				)
-		except self.bot.bot.BadRequest:
+		except TelegramError:
+			traceback.print_exc()
 			print(f'Message with id: {transaction.message.id} cannot be deleted')
 
 	def try_delete_transaction_message(self, chat_id: int, transaction: Transaction):

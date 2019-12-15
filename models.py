@@ -72,9 +72,8 @@ class Update(BaseModel):
 
 def escape_markdown_characters(text):
 	match_md = r'((([_*]).+?\3[^_*]*)*)([_*])'
-	return re.sub(match_md, "\g<1>\\\\\g<4>", text)
+	return re.sub(match_md, "", text)
 
 
 if __name__ == '__main__':
-
 	create_tables()
