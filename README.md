@@ -16,9 +16,10 @@ my payment info on Google Drive, and an extra hop through Telegram does not both
 ## Installation
 This makes use of the [abna Python library](https://github.com/djc/abna) to retrieve 
 transactions.   
-* `virtualenv venv`
-* `. venv/bin/activate`
-* `pip install -r requirements.txt`  
+* `apt install python3-setuptools virtualenv python3-pip python3-venv`
+* `python3 -m venv env`
+* `source env/bin/activate` (and make sure you set the right interpreter in PyCharm)
+* `pip install -r requirements.txt`
 * `cp config-example.yaml config.yaml` and edit that to your preferences.  
 
 Then enable the Google Sheets API on: https://console.developers.google.com/apis/library/sheets.googleapis.com  

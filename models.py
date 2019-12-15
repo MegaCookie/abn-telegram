@@ -1,5 +1,6 @@
 from peewee import *
 from datetime import datetime
+import re
 
 db = SqliteDatabase('abn-telegram.db')
 
@@ -48,11 +49,11 @@ class Transaction(BaseModel):
 	def message_text(self):
 		return (
 			f'{self.time_human}\n'
-			f'*{self.description}*\n'
+			f'*{escape_markdown_characters(self.description)}*\n'
 			f'*➖ €{self.amount_human}* 💸'
 		) if self.is_debit else (
 			f'{self.time_human}\n'
-			f'*{self.description}*\n'
+			f'*{escape_markdown_characters(self.description)}*\n'
 			f'*➕ €{self.amount_human} 💰*'
 		)
 
@@ -67,6 +68,11 @@ class Update(BaseModel):
 
 	def get_last_transaction_time(self):
 		self.first()
+
+
+def escape_markdown_characters(text):
+	match_md = r'((([_*]).+?\3[^_*]*)*)([_*])'
+	return re.sub(match_md, "\g<1>\\\\\g<4>", text)
 
 
 if __name__ == '__main__':

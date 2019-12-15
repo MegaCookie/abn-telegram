@@ -7,7 +7,7 @@ Type=simple
 User=xxx
 Group=xxx
 WorkingDirectory=/daFolder
-ExecStart=/usr/bin/python3 /daFolder/bot.py
+ExecStart=/daFolder/env/bin/python3 /daFolder/bot.py
 
 [Install]
 WantedBy=multi-user.target
